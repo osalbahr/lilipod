@@ -14,11 +14,15 @@ jobs:
     steps:
     - name: Tap
       run: |
-        eval "$(/home/linuxbrew/bin/brew shellenv)"
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
         brew tap osalbahr/lilipod https://github.com/osalbahr/lilipod
 
     - name: Audit
-      run: brew audit --strict --online lilipod
+      run: |
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+        brew audit --strict --online lilipod
 
     - name: Install
-      run: brew install lilipod
+      run: |
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+        brew install lilipod
