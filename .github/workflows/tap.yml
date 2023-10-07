@@ -12,9 +12,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Tap
+      run: brew tap osalbahr/lilipod https://github.com/osalbahr/lilipod
 
-    - name: Test Lilipod
-      run: |
-        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-        brew tap osalbahr/lilipod https://github.com/osalbahr/lilipod
-        brew test-bot osalbahr/lilipod/lilipod
+    - name: Audit
+      run: brew audit --strict --online lilipod
+
+    - name: Install
+      run: brew install lilipod
