@@ -1,0 +1,28 @@
+name: Homebrew Tap
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Tap
+      run: |
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+        brew tap osalbahr/lilipod https://github.com/osalbahr/lilipod
+
+    - name: Audit
+      run: |
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+        brew audit --strict --online lilipod
+
+    - name: Install
+      run: |
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+        brew install lilipod
