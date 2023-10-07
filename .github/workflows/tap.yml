@@ -10,12 +10,12 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/homebrew/ubuntu22.04:master
 
     steps:
     - name: Tap
-      run: brew tap osalbahr/lilipod https://github.com/osalbahr/lilipod
+      run: |
+        eval "$(/home/linuxbrew/bin/brew shellenv)"
+        brew tap osalbahr/lilipod https://github.com/osalbahr/lilipod
 
     - name: Audit
       run: brew audit --strict --online lilipod
