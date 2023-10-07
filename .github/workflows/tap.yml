@@ -16,9 +16,7 @@ jobs:
 
     steps:
 
-    - name: Set up Homebrew
-      run: eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
     - name: Test Lilipod
       run: |
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
         brew test-bot osalbahr/lilipod/lilipod
