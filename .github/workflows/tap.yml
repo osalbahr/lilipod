@@ -1,6 +1,3 @@
-# This workflow will build a golang project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
-
 name: Homebrew Tap
 
 on:
@@ -19,4 +16,5 @@ jobs:
     - name: Test Lilipod
       run: |
         eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+        brew tap osalbahr/lilipod https://github.com/osalbahr/lilipod
         brew test-bot osalbahr/lilipod/lilipod
